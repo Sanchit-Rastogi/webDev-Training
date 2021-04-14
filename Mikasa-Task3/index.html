@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="veiwport" content="width=device-width, initial-scale=1">
     <Title>Mikasa</Title>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,36 +11,44 @@
 </head>
 
 <body>
-    <div class="topbar">
-        <img src="./Images/logo.png" alt="">
-        <div class="topbar-links">
+    <div class="header">
+        <img src="Images/logo.png" alt="">
+        <div class="header-links">
             <a class="pipe" href="">Welcome Jeffery(Sign Out)</a>
             <a class="pipe" href="">My Account</a>
             <a class="pipe" href="">999 items - $9999.99 Checkout</a>
             <a href="">Customer Service</a>
         </div>
     </div>
-    <nav class="navbar">
-        <a href="">Dining</a>
-        <a href="">Crystal</a>
-        <a href="">By Brand</a>
-        <a href="">What's New</a>
-        <a href="">Find a Gift</a>
-        <a href="">Wedding Ideas</a>
-        <a href="">Clearance & Special Offers</a>
-        <div class="search-bar">
-            <input placeholder="Search keyword/Item #" type="text">
-            <button>Go</button>
-        </div>
-    </nav>
+    <div class="nav-container">
+        <nav class="navbar">
+            <a class="pipe" href="">Dining</a>
+            <a class="pipe" href="">Crystal</a>
+            <a class="pipe" href="">By Brand</a>
+            <a class="pipe" href="">What's New</a>
+            <a class="pipe" href="">Find a Gift</a>
+            <a class="pipe" href="">Wedding Ideas</a>
+            <a class="pipe" href="">Clearance & Special Offers</a>
+            <div class="search-bar">
+                <input placeholder="Search keyword/Item #" type="text">
+                <button>GO</button>
+            </div>
+        </nav>
+    </div>
     <div class="offers">
         <div class="current-offers">
             <p>Free shipping on Orders Over $150</p>
-            <p>Holiday Platters</p>
-            <p>Celebrate Thanksgiving</p>
+            <ul>
+                <li>
+                    Holiday Platters
+                </li>
+                <li>
+                    Celebrate Thanksgiving
+                </li>
+            </ul>
         </div>
         <div class="bridal-offers">
-            <img src="/Images/bridelRegistry.jpg" alt="">
+            <img src="Images/bridelRegistry.jpg" alt="">
             <a href="">Bridal Registry</a>
         </div>
     </div>
@@ -53,16 +60,11 @@
                 <h2>Dress Your Table</h2>
                 <p>Create a fabulous new look for your next event. Choose from various styles and ideas.</p>
                 <div class="options">
-                    <p>Contemporary</p>
-                    <hr>
-                    <p>Traditional</p>
-                    <hr>
-                    <p>Brunch</p>
-                    <hr>
-                    <p>Themes</p>
-                    <hr>
-                    <p>Buffet</p>
-                    <hr>
+                    <p class="bottom-borderline">Contemporary</p>
+                    <p class="bottom-borderline">Traditional</p>
+                    <p class="bottom-borderline">Brunch</p>
+                    <p class="bottom-borderline">Themes</p>
+                    <p class="bottom-borderline">Buffet</p>
                     <p>Wine & Cheese</p>
                 </div>
                 <a href="">See More Dress Your Table Ideas</a>
@@ -74,19 +76,16 @@
             <h3>You'll love our fine stemware collection</h3>
             <h5>Duis autem vei irium dolor in henderenit vaulpirt.</h5>
             <a href="">See all stemware</a>
-            <!-- <img src="Images/promo_glass.png" alt=""> -->
         </div>
         <div class="promo-plates">
             <h3>Home accent for the holidays</h3>
             <h5>Duis autem vei irium dolor in henderenit vaulpirt.</h5>
             <a href="">See all home accents</a>
-            <!-- <img src="Images/promo_plates.png" alt=""> -->
         </div>
         <div class="promo-album">
             <h3>Mikasa clearance sale 20% to 80% off</h3>
             <h5>Duis autem vei irium dolor in henderenit vaulpirt.</h5>
             <a href="">See all clearance items</a>
-            <!-- <img src="Images/promo_album.png" alt=""> -->
         </div>
     </div>
     <div class="footer">
@@ -102,7 +101,7 @@
         <div class="footer-2">
             <p>Sign up to receive special offers & promotions from Mikasa.</p>
             <div class="footer-signup">
-                <Input placeholder="Enter your email address" type="text"></Input>
+                <input placeholder="Enter your email address" type="text" />
                 <button>SIGN UP</button>
             </div>
         </div>

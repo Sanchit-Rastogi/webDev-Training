@@ -1,20 +1,20 @@
 body{
-    background-image: url("/Images/background12.png");
+    background-image: url("../Images/background12.png");
     margin: 0px;
     font-family: 'Open Sans', sans-serif;
     z-index: 0;
 }
 
-.topbar{
+.header{
     margin: 0.5% 15%;
 }
 
-.topbar .topbar-links{
+.header .header-links{
     float: right;
     padding-top: 25px;
 }
 
-.topbar-links a{
+.header-links a{
     text-decoration: none;
     color: #9B9B9B;
     padding: 0px 5px;
@@ -22,12 +22,18 @@ body{
 }
 
 
-.topbar-links .pipe::after{
+.header-links .pipe::after{
     content: "|";
     padding-left: 10px;
 }
 
-.navbar{
+.nav-container{
+    padding: 1px;
+    background-color: white;
+    border: 1px solid #D6D4D5;
+}
+
+.nav-container .navbar{
     background-color: #D6D4D5;
     padding: 0.5% 15%;
 }
@@ -39,9 +45,22 @@ body{
     font-size: 13px;
 }
 
+.navbar .pipe::after{
+    content: "|";
+    padding-left: 10px;
+    color: white;
+}
+
 .navbar .search-bar{
     float: right;
     display: inline;
+}
+
+.search-bar input{
+    box-shadow: 1px 1px 1px 1px inset #353332;
+    border-radius: 2px;
+    border: none;
+    padding: 3px 5px;
 }
 
 .search-bar input::placeholder{
@@ -50,6 +69,7 @@ body{
 
 .search-bar button{
     border-radius: 5px;
+    border: 1px solid grey;
 }
 
 .offers{
@@ -67,6 +87,20 @@ body{
     color: #9097A7;
     padding: 0px 5px;
     font-size: 13px;
+}
+
+.current-offers ul{
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+}
+
+.current-offers li{
+    display: inline;
+    color: #9097A7;
+    padding-left: 15px;
+    font-size: 13px;
+    
 }
 
 .offers .bridal-offers{
@@ -100,7 +134,7 @@ body{
 
 .recipe .options-container{
     flex: 2;
-    background-color: #353332;
+    background: linear-gradient(180deg, rgba(49,47,47,1) 0%, rgba(67,66,64,1) 50%, rgba(56,55,53,1) 100%);
 }
 
 .options-container .options-menu{
@@ -115,8 +149,8 @@ body{
     font-weight: 400;
 }
 
-.options-menu hr{
-    border: 1px solid #9B9B9B;
+.options-menu .bottom-borderline{
+    border-bottom: #4D4B4A 2px solid;
 }
 
 .options-menu p{
@@ -179,7 +213,7 @@ body{
     flex: 1;
     padding: 0px 20px;
     position: relative;
-    background-image: url("/Images/promo_glass.png");
+    background-image: url("../Images/promo_glass.png");
     background-repeat: no-repeat;
     background-position-y: bottom;
     background-position-x: left;
@@ -218,7 +252,7 @@ body{
     flex: 1;
     padding: 0px 20px;
     position: relative;
-    background-image: url("/Images/promo_plates.png");
+    background-image: url("../Images/promo_plates.png");
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
@@ -229,43 +263,11 @@ body{
     padding: 0px 20px;
     border-left: 1px solid #E8E8E8;
     position: relative;
-    background-image: url("/Images/promo_album.png");
+    background-image: url("../Images/promo_album.png");
     background-repeat: no-repeat;
     background-position-x: right;
     background-position-y: bottom;
 }
-
-/* .promo-album{
-    border-left: 1px solid #E8E8E8;
-    flex: 1;
-    padding-left: 20px;
-    position: relative;
-} */
-
-/* .promo-glass img{
-    position: absolute;
-    left : 0px;
-    bottom: 0px;
-    width: 250px;
-    height: 150px;
-}
-
-.promo-plates img{
-    position: absolute;
-    right: 20px;
-    left: 20px;
-    bottom: 0px;
-    width: max-content;
-    height: 150px;
-}
-
-.promo-album img{
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    width: 150px;
-    height: 150px;
-} */
 
 .footer{
     margin: 0.5% 15%;
@@ -285,10 +287,13 @@ body{
     color: #878586;
     margin: 0px;
     font-size: 12px;
+    float: right;
 }
 
 .footer-2 .footer-signup{
     padding-top: 10px;
+    padding-left: 40px;
+    float: left;
 }
 
 .footer-signup input::placeholder{
@@ -297,8 +302,17 @@ body{
 
 .footer-signup button{
     border-radius: 5px;
-    font-size: 12px;
-    padding: 2px;
+    border: 1px solid grey;
+    font-size: 10px;
+    padding: 3px 5px;
+    margin-left: 5px;
+}
+
+.footer-signup input{
+    box-shadow: 1px 1px 1px 1px inset #353332;
+    border-radius: 2px;
+    border: none;
+    padding: 3px 5px;
 }
 
 .footer-1 p{

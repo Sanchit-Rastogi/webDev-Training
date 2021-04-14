@@ -35,20 +35,18 @@ body{
 
 .nav-container .navbar{
     background-color: #D6D4D5;
-    padding: 0.5% 15%;
+    padding: 0.4% 15%;
 }
 
 .navbar a{
     color: #767475;
     text-decoration: none;
-    padding: 0px 5px;
-    font-size: 13px;
+    padding: 10px;
+    font-size: 12px;
 }
 
-.navbar .pipe::after{
-    content: "|";
-    padding-left: 10px;
-    color: white;
+.navbar .pipe{
+   border-right: 1px solid white;
 }
 
 .navbar .search-bar{
@@ -85,22 +83,21 @@ body{
 .current-offers p{
     display: inline;
     color: #9097A7;
-    padding: 0px 5px;
     font-size: 13px;
 }
 
 .current-offers ul{
-    display: inline;
+    display: inline-flex;
     margin: 0px;
+    list-style: circle;
     padding: 0px;
 }
 
 .current-offers li{
-    display: inline;
     color: #9097A7;
-    padding-left: 15px;
+    padding-left: 10px;
     font-size: 13px;
-    
+    margin-left: 30px;
 }
 
 .offers .bridal-offers{
@@ -187,14 +184,13 @@ body{
     margin: 0% 15%;
     background-color: white;
     height: 175px;
-    padding-top: 10px;
+    position: relative;
 }
 
 .promo-container h3{
     color: #353332;
     font-size: 14px;
     margin: 7px 0px;
-    z-index: +1;
 }
 
 .promo-container h5{
@@ -248,7 +244,6 @@ body{
 }
 
 .promo-plates{
-    border-left: 1px solid #E8E8E8;
     flex: 1;
     padding: 0px 20px;
     position: relative;
@@ -258,10 +253,29 @@ body{
     background-position-y: bottom;
 }
 
+.promo-plates::after{
+    content: " ";
+    border-left: 1px solid #E8E8E8;
+    background: #ccc;
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    height: 90%;
+}
+
+.promo-album::after{
+    content: " ";
+    border-left: 1px solid #E8E8E8;
+    background: #ccc;
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    height: 90%;
+}
+
 .promo-album{
     flex: 1;
     padding: 0px 20px;
-    border-left: 1px solid #E8E8E8;
     position: relative;
     background-image: url("../Images/promo_album.png");
     background-repeat: no-repeat;

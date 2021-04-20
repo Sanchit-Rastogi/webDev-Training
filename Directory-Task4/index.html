@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Directory</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1442aef90e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="navbar-container">
+        <nav>
+            <div class="navbar-left">
+                <img src="./Images/logo.png" alt="">
+                <div class="tagline">
+                    <h1>Employee Directory</h1>
+                    <h3>The Ultimate People Discovery Experience</h3>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <h3>Welcome, <span class="name">Andrew Philips</span></h3>
+                <img src="./Images/avatar.png" alt="">
+            </div>
+        </nav>
+    </div>
+    <hr>
+    <div class="content">
+        <div class="categories">
+            <div class="departments">
+                <h3>Departments</h3>
+                <ul id="departmentList">
+                </ul>
+            </div>
+            <div class="offices">
+                <h3>Offices</h3>
+                <ul id="officesList">
+                </ul>
+            </div>
+            <div class="job-titles">
+                <h3>Job Titles</h3>
+                <ul id="jobTitlesList">
+                </ul>
+            </div>
+        </div>
+        <div class="filters-and-results">
+            <div class="filters">
+                <div class="letter-container">
+                    <ul id="letters-list" class="letters">
+                        <li><i class="fas fa-user"></i></li>
+                    </ul>
+                </div>
+                <div class="filter-container">
+                    <div class="search-box">
+                        <h2>Search</h2>
+                        <input placeholder="Enter any keyword" class="search-input" type="text">
+                        <i class="fas fa-search"></i>
+                        <button>Clear</button>
+                    </div>
+                    <div class="filter-box">
+                        <h2>Filter by</h2>
+                        <select name="employee-attribute" id="filter">
+                            <option value="fName">First Name</option>
+                            <option value="lName">Last Name</option>
+                            <option value="pName">Preferred Name</option>
+                            <option value="email">Email</option>
+                            <option value="phoneNumber">Phone Number</option>
+                            <option value="department">Department</option>
+                            <option value="jobTitle">Job Title</option>
+                            <option value="office">Office</option>
+                            <option value="skypeId">Skype ID</option>
+                        </select>
+                    </div>
+                    <button class="add-employee-btn" id="add-btn">Add Employee</button>
+                    <div class="modal-form" id="add-employee-form">
+                        <form action="" class="form-container">
+                            <div class="form-header">
+                                <h1>Login</h1>
+                                <span id="close-btn"><i class="fas fa-times-circle"></i></span>
+                            </div>
+
+                            <label for="fName"><b>First Name</b></label>
+                            <input type="text" placeholder="Enter First Name" name="fName" required>
+
+                            <label for="lName"><b>Last Name</b></label>
+                            <input type="text" placeholder="Enter Last Name" name="lName" required>
+
+                            <label for="pName"><b>Preferred Name</b></label>
+                            <input type="text" placeholder="Preferred Name" name="pName" required>
+
+                            <label for="email"><b>Email</b></label>
+                            <input type="email" placeholder="Enter Email" name="email" required>
+
+                            <label for="jobTitle"><b>Job Title</b></label>
+                            <input type="text" placeholder="Enter Job Title" name="jobTitle" required>
+
+                            <label for="office"><b>Office</b></label>
+                            <input type="text" placeholder="Enter Office Location" name="office" required>
+
+                            <label for="phoneNumber"><b>Phone Number</b></label>
+                            <input type="phone" placeholder="Enter Phone Number" name="phoneNumber" required>
+
+                            <label for="skypeId"><b>Skype Id</b></label>
+                            <input type="text" placeholder="Enter Skype Id" name="skypeId" required>
+
+                            <button type="submit" class="form-add-btn">Add</button>
+                        </form>
+                    </div>
+                </div>
+                <p class="note"><strong>Note:</strong> Please use advance filter options to refine your results.</p>
+            </div>
+            <div class="results">
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="./Js/index.js"></script>
+</body>
+
+</html>

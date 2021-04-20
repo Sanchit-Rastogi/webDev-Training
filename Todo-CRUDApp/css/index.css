@@ -1,0 +1,32 @@
+body{
+    margin: 0px auto;
+    width: 50%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#container{
+    width: 400px;
+    height: 50px;
+}
+
+#todoInput{
+    width: 300px;
+    vertical-align: middle;
+    outline: none;
+    height: 50px;
+    font-size: 30px;
+    border: 1px solid black;
+    margin: 0px;
+}
+
+#addTodo{
+    display: block;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.todos{
+    margin-top: 30px;
+}

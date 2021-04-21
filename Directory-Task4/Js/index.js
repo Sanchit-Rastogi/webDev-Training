@@ -11,11 +11,32 @@ var formSubmitBtn = document.querySelector(".form-add-btn");
 var filterDropdown = document.getElementById("filter");
 var searchInput = document.querySelector(".search-input");
 
+document.querySelector(".bring-all-user").addEventListener('click', () => {
+    loadEmployees();
+    createEmployeeCard();
+});
+
 filterDropdown.onchange = function () {
     console.log(filterDropdown.value);
 }
 
-var listDepartment = ["IT", "Human Resources", "MD", "Sales",];
+document.getElementById("clear-btn").addEventListener("click", () => {
+    searchInput.value = '';
+    loadEmployees();
+    createEmployeeCard();
+});
+
+searchInput.addEventListener('keyup', (e) => {
+    loadEmployees();
+    const searchString = e.target.value;
+
+    Employees = Employees.filter(employee => {
+        return employee[filterDropdown.value].toLowerCase().includes(searchString.toLowerCase());
+    });
+    createEmployeeCard();
+});
+
+var listDepartment = ["IT Department", "HR Department", "MD", "Sales",];
 
 var listOffices = ["Seattle", "India",];
 
@@ -35,51 +56,50 @@ class Employee {
     }
 }
 
-var employeeList = [
-    new Employee("Anthony", "Morris", "AnthonyMorris", "1234567890", "anthony@gmail.com", "SharePoint Practice Head", "Seattle", "IT department", "anthony123"),
-    new Employee("Franklin", "Humark", "FranklinHumark", "1234567890", "Fraklin@gmail.com", "Network Engineer", "Seattle", "IT department", "Fraklin123"),
-    new Employee("Helen", "Zimmerman", "HelenZimmerman", "9876543211", "Helen@gmail.com", "Operations Manager", "Hyderabad", "IT department", "Helen123"),
-    new Employee("Angela", "Bailey", "AngelaBailey", "8765432110", "angela@gmail.com", "Talent Magnet Jr.", "Seattle", "HR Department", "Angela123"),
-];
-
-var employeeFilterList = employeeList;
-
-searchInput.addEventListener('change', (e) => {
-    var dropdownValue = filterDropdown.value;
-    employeeFilterList.forEach((emp) => {
-        console.log(emp);
-        if (emp.dropdownValue != e.currentTarget.value) {
-            employeeFilterList.pop(emp);
-        }
-    });
-    createEmployeeCard();
-})
-
-formSubmitBtn.onclick = function () {
-    employeeList.push(
+formSubmitBtn.addEventListener('click', () => {
+    console.log("Add button clicked");
+    loadEmployees();
+    Employees.push(
         new Employee(
             addEmpForm.elements.namedItem("fName").value,
-            addEmpForm.elements.namedItem("fName").value,
-            addEmpForm.elements.namedItem("fName").value,
-            addEmpForm.elements.namedItem("fName").value,
-            addEmpForm.elements.namedItem("fName").value,
-            addEmpForm.elements.namedItem("fName").value,
-            addEmpForm.elements.namedItem("fName").value,
-            addEmpForm.elements.namedItem("fName").value,
-            addEmpForm.elements.namedItem("fName").value,
+            addEmpForm.elements.namedItem("lName").value,
+            addEmpForm.elements.namedItem("pName").value,
+            addEmpForm.elements.namedItem("phoneNumber").value,
+            addEmpForm.elements.namedItem("email").value,
+            addEmpForm.elements.namedItem("jobTitle").value,
+            addEmpForm.elements.namedItem("office").value,
+            addEmpForm.elements.namedItem("department").value,
+            addEmpForm.elements.namedItem("skypeId").value,
         ),
     );
-    employeeList.push(new Employee("Helen", "Zimmerman", "HelenZimmerman", "9876543211", "Helen@gmail.com", "Operations Manager", "Hyderabad", "IT department", "Helen123"),);
-    console.log(employeeList);
-};
+    saveEmployees();
+});
+
+var Employees;
+
+function saveEmployees() {
+
+    var jsonString = JSON.stringify(Employees);
+    localStorage.setItem('Employees', jsonString);
+
+}
+
+function loadEmployees() {
+
+    Employees = JSON.parse(localStorage.getItem('Employees')) || [];
+
+}
 
 document.onload = createEmployeeCard();
 
 function createEmployeeCard() {
+    if (Employees == null) {
+        loadEmployees();
+    }
     while (resultsDiv.firstChild) {
         resultsDiv.removeChild(resultsDiv.lastChild);
     }
-    for (var i = 0; i < employeeFilterList.length; i++) {
+    for (var i = 0; i < Employees.length; i++) {
         // Creating the card div
         var emp = document.createElement('div');
         emp.classList.add("profile-card");
@@ -90,17 +110,17 @@ function createEmployeeCard() {
         // Creating detials div
         var empDetailDiv = document.createElement('div');
         // Name div
-        var fullName = employeeFilterList[i].fName + " " + employeeFilterList[i].lName;
+        var fullName = Employees[i].fName + " " + Employees[i].lName;
         var nameh3 = document.createElement('h3');
         nameh3.appendChild(document.createTextNode(fullName));
         empDetailDiv.appendChild(nameh3);
         // Job Title Div
         var jobh5 = document.createElement('h5');
-        jobh5.appendChild(document.createTextNode(employeeFilterList[i].jobTitle));
+        jobh5.appendChild(document.createTextNode(Employees[i].jobTitle));
         empDetailDiv.appendChild(jobh5);
         // Department Div
         var departmenth5 = document.createElement('h5');
-        departmenth5.appendChild(document.createTextNode(employeeFilterList[i].department));
+        departmenth5.appendChild(document.createTextNode(Employees[i].department));
         empDetailDiv.appendChild(departmenth5);
         // Creating Icon Span 
         var iconRowSpan = document.createElement('span');
@@ -132,34 +152,81 @@ function createEmployeeCard() {
     }
 }
 
+// Letters filter
 for (var i = 1; i <= 26; i++) {
     var letter = String.fromCharCode(64 + i);
-    var li = document.createElement('li');
-    li.appendChild(document.createTextNode(letter));
-    lettersList.appendChild(li);
+    var letterLi = document.createElement('li');
+    letterLi.addEventListener('click', (e) => {
+        loadEmployees();
+        Employees = Employees.filter(employee => {
+            return employee.fName[0].toUpperCase().includes(e.currentTarget.innerText);
+        });
+        createEmployeeCard();
+    });
+    letterLi.appendChild(document.createTextNode(letter));
+    lettersList.appendChild(letterLi);
 }
 
+// Department filter
 for (var i = 0; i < listDepartment.length; i++) {
     var department = listDepartment[i];
     var li = document.createElement('li');
-    var link = document.createElement('a');
-    link.appendChild(document.createTextNode(department));
-    link.href = "";
-    li.appendChild(link);
+    var count = document.createElement('span');
+    li.addEventListener('click', (e) => {
+        loadEmployees();
+        Employees = Employees.filter(employee => {
+            return employee.department.toLowerCase().includes(e.currentTarget.innerText.toLowerCase());
+        });
+        createEmployeeCard();
+    })
+    var occurence = Employees.filter(emp => {
+        return emp.department.toLowerCase().includes(department.toLowerCase());
+    }).length;
+    count.appendChild(document.createTextNode(" (" + occurence + ")"));
+    li.appendChild(document.createTextNode(department));
+    li.appendChild(count);
     departmentList.appendChild(li);
 }
 
+// Office filter
 for (var i = 0; i < listOffices.length; i++) {
     var office = listOffices[i];
     var li = document.createElement('li');
+    var count = document.createElement('span');
+    li.addEventListener('click', (e) => {
+        loadEmployees();
+        Employees = Employees.filter(employee => {
+            return employee.office.toLowerCase().includes(e.currentTarget.innerText.toLowerCase());
+        });
+        createEmployeeCard();
+    })
+    var occurence = Employees.filter(emp => {
+        return emp.office.toLowerCase().includes(office.toLowerCase());
+    }).length;
+    count.appendChild(document.createTextNode(" (" + occurence + ")"));
     li.appendChild(document.createTextNode(office));
+    li.appendChild(count);
     officeList.appendChild(li);
 }
 
+// Job title filter
 for (var i = 0; i < listJobTitle.length; i++) {
     var jobTitle = listJobTitle[i];
     var li = document.createElement('li');
+    var count = document.createElement('span');
+    li.addEventListener('click', (e) => {
+        loadEmployees();
+        Employees = Employees.filter(employee => {
+            return employee.jobTitle.toLowerCase().includes(e.currentTarget.innerText.toLowerCase());
+        });
+        createEmployeeCard();
+    })
+    var occurence = Employees.filter(emp => {
+        return emp.jobTitle.toLowerCase().includes(jobTitle.toLowerCase());
+    }).length;
+    count.appendChild(document.createTextNode(" (" + occurence + ")"));
     li.appendChild(document.createTextNode(jobTitle));
+    li.appendChild(count);
     jobTitleList.appendChild(li);
 }
 

@@ -49,7 +49,7 @@
             <div class="filters">
                 <div class="letter-container">
                     <ul id="letters-list" class="letters">
-                        <li><i class="fas fa-user"></i></li>
+                        <li class="bring-all-user"><i class="fas fa-user"></i></li>
                     </ul>
                 </div>
                 <div class="filter-container">
@@ -57,7 +57,7 @@
                         <h2>Search</h2>
                         <input placeholder="Enter any keyword" class="search-input" type="text">
                         <i class="fas fa-search"></i>
-                        <button>Clear</button>
+                        <button id="clear-btn">Clear</button>
                     </div>
                     <div class="filter-box">
                         <h2>Filter by</h2>
@@ -95,6 +95,9 @@
 
                             <label for="jobTitle"><b>Job Title</b></label>
                             <input type="text" placeholder="Enter Job Title" name="jobTitle" required>
+
+                            <label for="department"><b>Department</b></label>
+                            <input type="text" placeholder="Enter Department" name="department" required>
 
                             <label for="office"><b>Office</b></label>
                             <input type="text" placeholder="Enter Office Location" name="office" required>

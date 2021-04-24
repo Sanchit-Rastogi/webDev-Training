@@ -12,19 +12,17 @@
 
 <body>
     <div class="navbar-container">
-        <nav>
-            <div class="navbar-left">
-                <img src="./Images/logo.png" alt="">
-                <div class="tagline">
-                    <h1>Employee Directory</h1>
-                    <h3>The Ultimate People Discovery Experience</h3>
-                </div>
+        <div class="navbar-left">
+            <img src="./Images/logo.png" alt="">
+            <div class="tagline">
+                <h1>Employee Directory</h1>
+                <h3>The Ultimate People Discovery Experience</h3>
             </div>
-            <div class="navbar-right">
-                <h3>Welcome, <span class="name">Andrew Philips</span></h3>
-                <img src="./Images/avatar.png" alt="">
-            </div>
-        </nav>
+        </div>
+        <div class="navbar-right">
+            <h3>Welcome, <span class="name">Andrew Philips</span></h3>
+            <img src="./Images/avatar.png" alt="">
+        </div>
     </div>
     <hr>
     <div class="content">
@@ -77,38 +75,69 @@
                     <div class="modal-form" id="add-employee-form">
                         <form action="" class="form-container" name="add-employee">
                             <div class="form-header">
-                                <h1>Login</h1>
+                                <h2>Employee Form</h2>
                                 <span id="close-btn"><i class="fas fa-times-circle"></i></span>
                             </div>
-
-                            <label for="fName"><b>First Name</b></label>
-                            <input type="text" placeholder="Enter First Name" name="fName" required>
-
-                            <label for="lName"><b>Last Name</b></label>
-                            <input type="text" placeholder="Enter Last Name" name="lName" required>
-
-                            <label for="pName"><b>Preferred Name</b></label>
-                            <input type="text" placeholder="Preferred Name" name="pName" required>
-
-                            <label for="email"><b>Email</b></label>
-                            <input type="email" placeholder="Enter Email" name="email" required>
-
-                            <label for="jobTitle"><b>Job Title</b></label>
-                            <input type="text" placeholder="Enter Job Title" name="jobTitle" required>
-
-                            <label for="department"><b>Department</b></label>
-                            <input type="text" placeholder="Enter Department" name="department" required>
-
-                            <label for="office"><b>Office</b></label>
-                            <input type="text" placeholder="Enter Office Location" name="office" required>
-
-                            <label for="phoneNumber"><b>Phone Number</b></label>
-                            <input type="phone" placeholder="Enter Phone Number" name="phoneNumber" required>
-
-                            <label for="skypeId"><b>Skype Id</b></label>
-                            <input type="text" placeholder="Enter Skype Id" name="skypeId" required>
-
-                            <button type="submit" class="form-add-btn">Add</button>
+                            <div class="input-container">
+                                <div class="name-container">
+                                    <div class="fName-container">
+                                        <label for="fName"><b>First Name</b></label>
+                                        <input type="text" placeholder="Enter First Name" name="fName">
+                                        <span id="fName-error" class="error-msg"></span>
+                                    </div>
+                                    <div class="lName-container">
+                                        <label for="lName"><b>Last Name</b></label>
+                                        <input type="text" placeholder="Enter Last Name" name="lName"
+                                            onchange="autofill()">
+                                        <span id="lName-error" class="error-msg"></span>
+                                    </div>
+                                </div>
+                                <div class="pName-container">
+                                    <label for="pName"><b>Preferred Name</b></label>
+                                    <input type="text" placeholder="Preferred Name" name="pName">
+                                    <span id="pName-error" class="error-msg"></span>
+                                </div>
+                                <div class="contact-container">
+                                    <div class="email-container">
+                                        <label for="email"><b>Email</b></label>
+                                        <input type="email" placeholder="Enter Email" name="email" required>
+                                        <span id="email-error" class="error-msg"></span>
+                                    </div>
+                                    <div class="phone-container">
+                                        <label for="phoneNumber"><b>Phone Number</b></label>
+                                        <input type="phone" placeholder="Enter Phone Number" name="phoneNumber"
+                                            required>
+                                        <span id="phone-error" class="error-msg"></span>
+                                    </div>
+                                </div>
+                                <div class="job-container">
+                                    <div class="title-container">
+                                        <label for="jobTitle"><b>Job Title</b></label>
+                                        <input type="text" placeholder="Enter Job Title" name="jobTitle" required>
+                                        <span id="jobTitle-error" class="error-msg"></span>
+                                    </div>
+                                    <div class="department-container">
+                                        <label for="department"><b>Department</b></label>
+                                        <input type="text" placeholder="Enter Department" name="department" required>
+                                        <span id="department-error" class="error-msg"></span>
+                                    </div>
+                                </div>
+                                <div class="office-skype-container">
+                                    <div class="office-container">
+                                        <label for="office"><b>Office</b></label>
+                                        <input type="text" placeholder="Enter Office Location" name="office" required>
+                                        <span id="office-error" class="error-msg"></span>
+                                    </div>
+                                    <div class="skypeId-container">
+                                        <label for="skypeId"><b>Skype Id</b></label>
+                                        <input type="text" placeholder="Enter Skype Id" name="skypeId" required>
+                                        <span id="skypeId-error" class="error-msg"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="submit-container">
+                                <span class="form-add-btn">Add</span>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -120,6 +149,7 @@
     </div>
     </div>
     <script src="./Js/index.js"></script>
+    <script src="./Js/models/Employee.js"></script>
 </body>
 
 </html>
